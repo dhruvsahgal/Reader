@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+ <head>
+ <title>Reader</title>
+
+	 <meta charset="utf-8" />
+	 <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+	 <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+ </head>
+
+	<body>
+    <p id="text">Total Read Time: </p>
+    <input type="text" id="passage" placeholder="Input Passage to check how long it will take to read" >
+    <br>
+    <button id="myButton" onclick="read_time()">Submit</button>
+    </body>
+    <script type="text/javascript">
+
+        function read_time(){
+        var text = document.getElementById("passage").value;
+        var avgChar = 6; // 6 is the approimate amount of characters per word
+        var readTime = Math.floor(text.length)/avgChar;  
+            readTime= Math.round(readTime/230); //230 is the approximate words per minute someone can read. 
+            if (readTime < 1) {
+                document.getElementById('text').innerHTML="Total Read Time: <1 min"   ;    
+            }
+            else {
+            document.getElementById('text').innerHTML="Total Read Time: " + readTime + "mins"   ;
+            }
+
+}
+</script>
+</html>
